@@ -1,0 +1,3 @@
+[global]
+mmdb_file = /home/adulau/git/mmdb-server/db/GeoOpen-country.mmd
+lookup_pubsub = no 
