@@ -31,6 +31,15 @@ Python 3.8+ is required to run the mmdb-server with some [additional requirement
       "build_db": "2022-01-23 16:13:05",
       "db_source": "GeoOpen-Country",
       "nb_nodes": 1156125
+    },
+    "ip": "188.65.220.25",
+    "country_info": {
+      "Country": "Belgium",
+      "Alpha-2 code": "BE",
+      "Alpha-3 code": "BEL",
+      "Numeric code": "56",
+      "Latitude (average)": "50.8333",
+      "Longitude (average)": "4"
     }
   }
 ]
@@ -51,6 +60,15 @@ Python 3.8+ is required to run the mmdb-server with some [additional requirement
       "build_db": "2022-01-23 16:13:05",
       "db_source": "GeoOpen-Country",
       "nb_nodes": 1156125
+    },
+    "ip": "2a02:21d0::68:69:25",
+    "country_info": {
+      "Country": "Belgium",
+      "Alpha-2 code": "BE",
+      "Alpha-3 code": "BEL",
+      "Numeric code": "56",
+      "Latitude (average)": "50.8333",
+      "Longitude (average)": "4"
     }
   }
 ]
@@ -58,7 +76,11 @@ Python 3.8+ is required to run the mmdb-server with some [additional requirement
 
 # Output format
 
-The output format is an array of JSON object (to support the ability to serve multiple geo location database).  Each JSON object of the JSON array includes a `meta` and a `country` fields. The `country` give the geographic location of the IP address queried. The `meta` field includes the origin of the MMDB database which the the metadata. 
+The output format is an array of JSON object (to support the ability to serve multiple geo location database).  Each JSON object of the JSON array includes a `meta`, `country`, `ip` and `country_info` fields. The `country` give the geographic location of the IP address queried. The `meta` field includes the origin of the MMDB database which the the metadata. `ip` returns the queried IP address. `country_info` gives additional information about the country such as `Country`, `Alpha-2 code`, `Alpha-3 code`, `Numeric code`, Latitude and Longitude (average centric value).
+
+# Public online version of mmdb-server
+
+- [https://ip.circl.lu/](https://ip.circl.lu/) - lookup via [https://ip.circl.lu/geolookup/8.8.8.8](https://ip.circl.lu/geolookup/8.8.8.8)
 
 # License
 
