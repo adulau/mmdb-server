@@ -62,6 +62,19 @@ class GeoLookup:
         georesult = q.get(value)
         ret.append(georesult)
         georesult['meta'] = meta
+        georesult['ip'] = value
+        resp.media = ret
+        return
+
+
+class MyGeoLookup:
+    def on_get(self, req, resp):
+        ret = []
+        ips = req.access_route
+        georesult = q.get(ips[0])
+        ret.append(georesult)
+        georesult['meta'] = meta
+        georesult['ip'] = ips[0]
         resp.media = ret
         return
 
@@ -69,6 +82,7 @@ class GeoLookup:
 app = falcon.App()
 
 app.add_route('/geolookup/{value}', GeoLookup())
+app.add_route('/', MyGeoLookup())
 
 if __name__ == '__main__':
     with make_server('', 8000, app) as httpd:
