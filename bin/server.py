@@ -9,6 +9,7 @@
 import configparser
 import time
 from ipaddress import ip_address
+import json
 from wsgiref.simple_server import make_server
 
 import falcon
@@ -20,9 +21,13 @@ config.read('../etc/server.conf')
 mmdb_file = config['global'].get('mmdb_file')
 pubsub = config['global'].getboolean('lookup_pubsub')
 port = config['global'].getint('port')
+country_file = config['global'].get('country_file')
+
+with open(country_file) as j:
+    country_info = json.load(j)
+
 if pubsub:
     import redis
-
     rdb = redis.Redis(host='127.0.0.1')
 
 meta = {}
@@ -50,6 +55,13 @@ def pubLookup(value: str) -> bool:
     return True
 
 
+def countryLookup(country: str) -> dict:
+    if country != 'None' or country is not None:
+        return country_info[country]
+    else:
+        return {}
+
+
 class GeoLookup:
     def on_get(self, req, resp, value):
         ret = []
@@ -64,6 +76,10 @@ class GeoLookup:
         ret.append(georesult)
         georesult['meta'] = meta
         georesult['ip'] = value
+        if georesult['country']['iso_code'] != 'None':
+            georesult['country_info'] = countryLookup(country=georesult['country']['iso_code'])
+        else:
+            georesult['country_info'] = {}
         resp.media = ret
         return
 
@@ -76,6 +92,10 @@ class MyGeoLookup:
         ret.append(georesult)
         georesult['meta'] = meta
         georesult['ip'] = ips[0]
+        if georesult['country']['iso_code'] != 'None':
+            georesult['country_info'] = countryLookup(country=georesult['country']['iso_code'])
+        else:
+            georesult['country_info'] = {}
         resp.media = ret
         return
 

@@ -1,4 +1,5 @@
 [global]
 mmdb_file = /home/adulau/git/mmdb-server/db/GeoOpen-country.mmd
+country_file = /home/adulau/git/mmdb-server/db/country.json
 lookup_pubsub = no 
 port = 8000
