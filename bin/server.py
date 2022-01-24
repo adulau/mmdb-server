@@ -19,6 +19,7 @@ config = configparser.ConfigParser()
 config.read('../etc/server.conf')
 mmdb_file = config['global'].get('mmdb_file')
 pubsub = config['global'].getboolean('lookup_pubsub')
+port = config['global'].getint('port')
 if pubsub:
     import redis
 
@@ -85,6 +86,6 @@ app.add_route('/geolookup/{value}', GeoLookup())
 app.add_route('/', MyGeoLookup())
 
 if __name__ == '__main__':
-    with make_server('', 8000, app) as httpd:
+    with make_server('', port, app) as httpd:
         print('Serving on port 8000...')
         httpd.serve_forever()
