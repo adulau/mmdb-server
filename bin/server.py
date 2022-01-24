@@ -87,5 +87,5 @@ app.add_route('/', MyGeoLookup())
 
 if __name__ == '__main__':
     with make_server('', port, app) as httpd:
-        print('Serving on port 8000...')
+        print(f'Serving on port {port}...')
         httpd.serve_forever()
