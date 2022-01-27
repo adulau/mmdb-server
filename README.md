@@ -2,7 +2,7 @@
 
 mmdb-server is an open source fast API server to lookup IP addresses for their geographic location. The server can be used with any [MaxMind DB File Format](https://maxmind.github.io/MaxMind-DB/) or file in the same format.
 
-mmdb-server includes a free and open [GeoOpen-Country database](./db/) for IPv4 and IPv6 addresses. The file GeoOpen-Country is generated on a regular basis from AS announces and their respective whois records.
+mmdb-server includes a free and open [GeoOpen-Country database](https://data.public.lu/fr/datasets/geo-open-ip-address-geolocation-per-country-in-mmdb-format/) for IPv4 and IPv6 addresses. The file GeoOpen-Country is generated on a regular basis from AS announces and their respective whois records.
 
 # Installation
 
