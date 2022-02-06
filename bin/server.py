@@ -44,7 +44,7 @@ for mmdb_file in mmdb_files:
     meta['nb_nodes'] = meta['reader'].metadata().node_count
     mmdbs.append(meta)
 
-print(mmdbs)
+
 def validIPAddress(IP: str) -> bool:
     try:
         type(ip_address(IP))
