@@ -1,8 +1,8 @@
 # mmdb-server
 
-mmdb-server is an open source fast API server to lookup IP addresses for their geographic location. The server can be used with any [MaxMind DB File Format](https://maxmind.github.io/MaxMind-DB/) or file in the same format.
+mmdb-server is an open source fast API server to lookup IP addresses for their geographic location, AS number. The server can be used with any [MaxMind DB File Format](https://maxmind.github.io/MaxMind-DB/) or file in the same format.
 
-mmdb-server includes a free and open [GeoOpen-Country database](https://data.public.lu/fr/datasets/geo-open-ip-address-geolocation-per-country-in-mmdb-format/) for IPv4 and IPv6 addresses. The file GeoOpen-Country is generated on a regular basis from AS announces and their respective whois records.
+mmdb-server includes a free and open [GeoOpen-Country database](https://data.public.lu/fr/datasets/geo-open-ip-address-geolocation-per-country-in-mmdb-format/) for IPv4 and IPv6 addresses. The file [GeoOpen-Country](https://cra.circl.lu/opendata/geo-open/mmdb-country/) and [GeoOpen-Country-ASN](https://cra.circl.lu/opendata/geo-open/mmdb-country-asn/) are generated on a regular basis from AS announces and their respective whois records.
 
 # Installation
 
@@ -28,9 +28,33 @@ Python 3.8+ is required to run the mmdb-server with some [additional requirement
       "description": {
         "en": "Geo Open MMDB database - https://github.com/adulau/mmdb-server"
       },
-      "build_db": "2022-01-23 16:13:05",
+      "build_db": "2022-02-05 11:37:33",
       "db_source": "GeoOpen-Country",
-      "nb_nodes": 1156125
+      "nb_nodes": 1159974
+    },
+    "ip": "188.65.220.25",
+    "country_info": {
+      "Country": "Belgium",
+      "Alpha-2 code": "BE",
+      "Alpha-3 code": "BEL",
+      "Numeric code": "56",
+      "Latitude (average)": "50.8333",
+      "Longitude (average)": "4"
+    }
+  },
+  {
+    "country": {
+      "iso_code": "BE",
+      "AutonomousSystemNumber": "49677",
+      "AutonomousSystemOrganization": "MAEHDROS-AS"
+    },
+    "meta": {
+      "description": {
+        "en": "Geo Open MMDB database - https://github.com/adulau/mmdb-server"
+      },
+      "build_db": "2022-02-06 10:30:25",
+      "db_source": "GeoOpen-Country-ASN",
+      "nb_nodes": 1159815
     },
     "ip": "188.65.220.25",
     "country_info": {
@@ -57,9 +81,33 @@ Python 3.8+ is required to run the mmdb-server with some [additional requirement
       "description": {
         "en": "Geo Open MMDB database - https://github.com/adulau/mmdb-server"
       },
-      "build_db": "2022-01-23 16:13:05",
+      "build_db": "2022-02-05 11:37:33",
       "db_source": "GeoOpen-Country",
-      "nb_nodes": 1156125
+      "nb_nodes": 1159974
+    },
+    "ip": "2a02:21d0::68:69:25",
+    "country_info": {
+      "Country": "Belgium",
+      "Alpha-2 code": "BE",
+      "Alpha-3 code": "BEL",
+      "Numeric code": "56",
+      "Latitude (average)": "50.8333",
+      "Longitude (average)": "4"
+    }
+  },
+  {
+    "country": {
+      "iso_code": "BE",
+      "AutonomousSystemNumber": "49677",
+      "AutonomousSystemOrganization": "MAEHDROS-AS"
+    },
+    "meta": {
+      "description": {
+        "en": "Geo Open MMDB database - https://github.com/adulau/mmdb-server"
+      },
+      "build_db": "2022-02-06 10:30:25",
+      "db_source": "GeoOpen-Country-ASN",
+      "nb_nodes": 1159815
     },
     "ip": "2a02:21d0::68:69:25",
     "country_info": {
