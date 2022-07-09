@@ -10,6 +10,7 @@ Python 3.8+ is required to run the mmdb-server with some [additional requirement
 
 - `pip3 install -r REQUIREMENTS`
 - `cp ./etc/server.conf.sample ./etc/server.conf`
+- `cd  ./db; bash update.sh; cd ..` (to get the latest version of the GeoOpen database)
 - `cd bin; python3 server.py`
 
 # Usage
