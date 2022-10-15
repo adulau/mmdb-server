@@ -62,7 +62,10 @@ def pubLookup(value: str) -> bool:
 
 def countryLookup(country: str) -> dict:
     if country != 'None' or country is not None or country != 'Unknown':
-        return country_info[country]
+        if country in country_info:
+            return country_info[country]
+        else:
+            return {}
     else:
         return {}
 
