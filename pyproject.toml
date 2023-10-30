@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mmdb-server"
+version = "0.5.0"
+description = ""
+authors = ["Alexandre Dulaunoy"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+serve = "mmdb_server.mmdb_server:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+falcon = "^3.1.1"
+maxminddb = "^2.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

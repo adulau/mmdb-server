@@ -17,7 +17,7 @@ import maxminddb
 
 version = "0.5"
 config = configparser.ConfigParser()
-config.read('../etc/server.conf')
+config.read('etc/server.conf')
 mmdb_file = config['global'].get('mmdb_file')
 pubsub = config['global'].getboolean('lookup_pubsub')
 port = config['global'].getint('port')
@@ -121,7 +121,12 @@ app = falcon.App()
 app.add_route('/geolookup/{value}', GeoLookup())
 app.add_route('/', MyGeoLookup())
 
-if __name__ == '__main__':
+def main():
     with make_server('', port, app) as httpd:
         print(f'Serving on port {port}...')
         httpd.serve_forever()
+
+
+if __name__ == '__main__':
+    main()
+
