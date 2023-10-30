@@ -6,12 +6,14 @@ mmdb-server includes a free and open [GeoOpen-Country database](https://data.pub
 
 # Installation
 
-Python 3.8+ is required to run the mmdb-server with some [additional requirements](./REQUIREMENTS).
+Python 3.10+ is required to run the mmdb-server with poetry.
 
-- `pip3 install -r REQUIREMENTS`
+- `curl -sSL https://install.python-poetry.org | python3 -`
+- Log out and Log in again
+- `poetry install`
 - `cp ./etc/server.conf.sample ./etc/server.conf`
 - `cd  ./db; bash update.sh; cd ..` (to get the latest version of the GeoOpen database)
-- `cd bin; python3 server.py`
+- `poetry run serve`
 
 # Usage
 
