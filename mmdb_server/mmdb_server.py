@@ -101,7 +101,6 @@ class MyGeoLookup:
         ret = []
         ips = req.access_route
         for mmdb in mmdbs:
-            m = {}
             georesult = mmdb['reader'].get(ips[0])
             m = mmdb.copy()
             del m['reader']
