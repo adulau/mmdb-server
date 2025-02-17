@@ -12,6 +12,10 @@ RUN cd db \
     && chmod +x update.sh \
     && ./update.sh
 
+## Configuring CRON JOB to update database daily
+RUN crontab -l | { cat; echo "0 0 * * * cd /app/db && ./update.sh >> /var/log/cron.log 2>&1"; } | crontab - \
+    && touch /var/log/cron.log
+
 ## Installing the Application
 ENV PATH=$PATH:/root/.local/bin
 RUN curl -sSL https://install.python-poetry.org | python3 - \
