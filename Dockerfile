@@ -5,7 +5,7 @@ COPY . .
 
 ## Prepare to install require packages
 RUN apt update \
-    && apt install -y --no-install-recommends nano git wget curl python3 python3-pip
+    && apt install -y --no-install-recommends nano cron git wget curl python3 python3-pip
 
 ## Update the database
 RUN cd db \
