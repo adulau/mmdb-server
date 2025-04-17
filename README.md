@@ -6,6 +6,8 @@ mmdb-server includes a free and open [GeoOpen-Country database](https://data.pub
 
 # Installation
 
+## Classic
+
 Python 3.10+ is required to run the mmdb-server with poetry.
 
 - `curl -sSL https://install.python-poetry.org | python3 -`
@@ -14,6 +16,11 @@ Python 3.10+ is required to run the mmdb-server with poetry.
 - `cp ./etc/server.conf.sample ./etc/server.conf`
 - `cd  ./db; bash update.sh; cd ..` (to get the latest version of the GeoOpen database)
 - `poetry run serve`
+
+## Docker
+
+- `docker build -t mmdb-server:latest .`
+- `docker run -d -p 8000:8000 --name mmdb-server mmdb-server:latest`
 
 # Usage
 
