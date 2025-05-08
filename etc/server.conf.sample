@@ -1,5 +1,6 @@
 [global]
 mmdb_file = db/GeoOpen-Country.mmdb,db/GeoOpen-Country-ASN.mmdb
+#mmdb_file = db/ipinfo_country_asn.mmdb,db/ipinfo_country.mmdb
 country_file = db/country.json
 lookup_pubsub = no 
 port = 8000
