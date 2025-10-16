@@ -4,7 +4,7 @@
 #
 # The server is released under the AGPL version 3 or later.
 #
-# Copyright (C) 2022 Alexandre Dulaunoy
+# Copyright (C) 2022-2025 Alexandre Dulaunoy
 
 import configparser
 import time
@@ -15,7 +15,7 @@ from wsgiref.simple_server import make_server
 import falcon
 import maxminddb
 
-version = "0.5"
+version = "0.6"
 config = configparser.ConfigParser()
 config.read('etc/server.conf')
 mmdb_file = config['global'].get('mmdb_file')
@@ -114,11 +114,20 @@ class MyGeoLookup:
         resp.media = ret
         return
 
+class MyRawLookup:
+    def on_get(self, req, resp):
+        ips = req.access_route
+        resp.text = ips[0]
+        return
+    def on_head(self, req, resp):
+        ips = req.access_route
+        resp.append_header('X-IP', ips[0])
 
 app = falcon.App()
 
 app.add_route('/geolookup/{value}', GeoLookup())
 app.add_route('/', MyGeoLookup())
+app.add_route('/raw', MyRawLookup())
 
 def main():
     with make_server('', port, app) as httpd:

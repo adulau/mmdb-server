@@ -142,10 +142,14 @@ The output format is an array of JSON object (to support the ability to serve mu
 - [https://ipv4.circl.lu](https://ipv4.circl.lu/) If you are dual-homed IPv6/IPv4, return your IPv4 address. 
 - [https://ipv6.circl.lu](https://ipv6.circl.lu/) If you are dual-homed IPv6/IPv4, return your IPv6 address. 
 
+## If you want the source raw IP without any geolookup details
+
+- [https://ip.circl.lu/raw](https://ip.circl.lu/raw)
+
 # License
 
 ```
-    Copyright (C) 2022-2024 Alexandre Dulaunoy
+    Copyright (C) 2022-2025 Alexandre Dulaunoy
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
