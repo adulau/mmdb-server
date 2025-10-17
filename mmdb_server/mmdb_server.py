@@ -30,6 +30,7 @@ with open(country_file) as j:
 
 if pubsub:
     import redis
+
     rdb = redis.Redis(host='127.0.0.1')
 
 mmdbs = []
@@ -70,9 +71,30 @@ def countryLookup(country: str) -> dict:
         return {}
 
 
+def _process_lookup(ip):
+    """Helper function to process IP lookup and format response."""
+    ret = []
+    for mmdb in mmdbs:
+        georesult = mmdb['reader'].get(ip) or {}  # Ensure dictionary, prevent NoneType errors
+        m = mmdb.copy()
+        del m['reader']
+        georesult['meta'] = m
+        georesult['ip'] = ip
+
+        # Determine country code from old or new format
+        country_code = None
+        if isinstance(georesult.get('country'), dict):
+            country_code = georesult['country'].get('iso_code')
+        elif isinstance(georesult.get('country'), str):
+            country_code = georesult['country']
+
+        georesult['country_info'] = countryLookup(country_code) if country_code else {}
+        ret.append(georesult)
+    return ret
+
+
 class GeoLookup:
     def on_get(self, req, resp, value):
-        ret = []
         ua = req.get_header('User-Agent')
         ips = req.access_route
         if not validIPAddress(value):
@@ -80,39 +102,13 @@ class GeoLookup:
             resp.media = "IPv4 or IPv6 address is in an incorrect format. Dotted decimal for IPv4 or textual representation for IPv6 are required."
             return
         pubLookup(value=f'{value} via {ips} using {ua}')
-        for mmdb in mmdbs:
-            m = {}
-            georesult = mmdb['reader'].get(value)
-            m = mmdb.copy()
-            del m['reader']
-            georesult['meta'] = m
-            georesult['ip'] = value
-            if georesult['country']['iso_code'] != 'None':
-                georesult['country_info'] = countryLookup(country=georesult['country']['iso_code'])
-            else:
-                georesult['country_info'] = {}
-            ret.append(georesult)
-        resp.media = ret
-        return
+        resp.media = _process_lookup(value)
 
 
 class MyGeoLookup:
     def on_get(self, req, resp):
-        ret = []
         ips = req.access_route
-        for mmdb in mmdbs:
-            georesult = mmdb['reader'].get(ips[0])
-            m = mmdb.copy()
-            del m['reader']
-            georesult['meta'] = m
-            georesult['ip'] = ips[0]
-            if georesult['country']['iso_code'] != 'None':
-                georesult['country_info'] = countryLookup(country=georesult['country']['iso_code'])
-            else:
-                georesult['country_info'] = {}
-            ret.append(georesult)
-        resp.media = ret
-        return
+        resp.media = _process_lookup(ips[0])
 
 class MyRawLookup:
     def on_get(self, req, resp):
@@ -129,6 +125,7 @@ app.add_route('/geolookup/{value}', GeoLookup())
 app.add_route('/', MyGeoLookup())
 app.add_route('/raw', MyRawLookup())
 
+
 def main():
     with make_server('', port, app) as httpd:
         print(f'Serving on port {port}...')
@@ -137,4 +134,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
