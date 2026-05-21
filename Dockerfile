@@ -1,26 +1,24 @@
-FROM ubuntu:24.04
+FROM python:3.12-slim
+
 LABEL authors="Erik Andri Budiman, Steve Clement"
 LABEL optimized-by="Gordon"
 WORKDIR /app
 COPY . .
 
-# Prepare to install required packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget \
     curl \
     git \
     nano \
-    python3 \
-    python3-pip \
-    wget \
+    ca-certificates \
+    libmaxminddb0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Update the database
-RUN chmod +x db/update.sh && db/update.sh
+ENV PATH="/root/.local/bin:$PATH"
 
-# Installing the Application
-ENV PATH=$PATH:/root/.local/bin
-RUN curl -sSL https://install.python-poetry.org | python3 - \
-    && poetry install --no-interaction --no-ansi \
-    && cp /app/etc/server.conf.sample /app/etc/server.conf
+RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN poetry install --only main --no-interaction --no-ansi
 
-ENTRYPOINT ["poetry", "run", "serve"]
+RUN cp /app/etc/server.conf.sample /app/etc/server.conf
+
+CMD ["sh", "-c", "db/update.sh && poetry run serve"]
