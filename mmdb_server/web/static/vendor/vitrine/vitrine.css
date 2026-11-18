@@ -1,0 +1,253 @@
+/*
+ * Vitrine — optional page stylesheet (dist/vitrine.css).
+ *
+ * The components style themselves in their shadow DOM. This file only avoids a flash of
+ * unstyled inline content before the script has loaded and defined the elements.
+ */
+vt-code,
+vt-markdown,
+vt-json {
+  display: block;
+}
+
+vt-code:not(:defined),
+vt-json:not(:defined) {
+  overflow: auto;
+  padding: 12px 16px;
+  border: 1px solid var(--vt-border, #d6d9d2);
+  border-radius: var(--vt-radius, 10px);
+  background: var(--vt-surface-sunken, #eaece7);
+  color: var(--vt-fg, #11151c);
+  font: 14px/1.6
+    var(--vt-font-mono, ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace);
+  white-space: pre;
+}
+
+@media (prefers-color-scheme: dark) {
+  vt-code:not(:defined),
+  vt-json:not(:defined) {
+    border-color: var(--vt-border, #262d3a);
+    background: var(--vt-surface-sunken, #0c0f14);
+    color: var(--vt-fg, #e8eae6);
+  }
+}
+
+/*
+ * Before the script has loaded: the Vitrine mark (window frame and V) drawn with CSS
+ * only, so it works under a strict CSP. Raw inline content stays hidden meanwhile.
+ */
+vt-code:not(:defined),
+vt-json:not(:defined),
+vt-markdown:not(:defined),
+vt-csv:not(:defined),
+vt-tags:not(:defined),
+vt-diff:not(:defined),
+vt-terminal:not(:defined),
+vt-tree:not(:defined),
+vt-http:not(:defined),
+vt-log:not(:defined),
+vt-env:not(:defined),
+vt-chart:not(:defined),
+vt-openapi:not(:defined),
+vt-timeline:not(:defined),
+vt-git:not(:defined),
+vt-job:not(:defined),
+vt-hex:not(:defined),
+vt-regex:not(:defined),
+vt-toml:not(:defined),
+vt-cron:not(:defined),
+vt-jwt:not(:defined),
+vt-xml:not(:defined),
+vt-cert:not(:defined),
+vt-table:not(:defined),
+vt-status:not(:defined),
+vt-calendar:not(:defined),
+vt-pricing:not(:defined),
+vt-faq:not(:defined),
+vt-gallery:not(:defined),
+vt-stats:not(:defined),
+vt-field:not(:defined),
+vt-board:not(:defined),
+vt-search:not(:defined),
+vt-date-picker:not(:defined),
+vt-menu:not(:defined),
+vt-upload:not(:defined),
+vt-testimonials:not(:defined),
+vt-countdown:not(:defined),
+vt-diagram:not(:defined),
+vt-math:not(:defined),
+vt-notebook:not(:defined),
+vt-trace:not(:defined),
+vt-test-report:not(:defined),
+vt-sql:not(:defined),
+vt-yaml:not(:defined) {
+  position: relative;
+  min-height: 96px;
+  max-height: 160px;
+  overflow: hidden;
+  color: transparent;
+}
+
+:is(
+    vt-code,
+    vt-json,
+    vt-markdown,
+    vt-csv,
+    vt-tags,
+    vt-diff,
+    vt-terminal,
+    vt-tree,
+    vt-http,
+    vt-log,
+    vt-env,
+    vt-xml,
+    vt-cert,
+    vt-table,
+    vt-status,
+    vt-calendar,
+    vt-pricing,
+    vt-faq,
+    vt-gallery,
+    vt-stats,
+    vt-field,
+    vt-board,
+    vt-search,
+    vt-date-picker,
+    vt-menu,
+    vt-upload,
+    vt-testimonials,
+    vt-countdown,
+    vt-diagram,
+    vt-math,
+    vt-notebook,
+    vt-trace,
+    vt-test-report,
+    vt-sql,
+    vt-timeline,
+    vt-git,
+    vt-job
+  ):not(:defined)::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 18px);
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 36px;
+  box-sizing: border-box;
+  border: 3px solid #4a5260;
+  border-top-width: 11px;
+  border-radius: 7px;
+  opacity: 0;
+  animation: vt-pending 300ms 300ms forwards;
+}
+
+:is(
+    vt-code,
+    vt-json,
+    vt-markdown,
+    vt-csv,
+    vt-tags,
+    vt-diff,
+    vt-terminal,
+    vt-tree,
+    vt-http,
+    vt-log,
+    vt-env,
+    vt-xml,
+    vt-cert,
+    vt-table,
+    vt-status,
+    vt-calendar,
+    vt-pricing,
+    vt-faq,
+    vt-gallery,
+    vt-stats,
+    vt-field,
+    vt-board,
+    vt-search,
+    vt-date-picker,
+    vt-menu,
+    vt-upload,
+    vt-testimonials,
+    vt-countdown,
+    vt-diagram,
+    vt-math,
+    vt-notebook,
+    vt-trace,
+    vt-test-report,
+    vt-sql,
+    vt-timeline,
+    vt-git,
+    vt-job
+  ):not(:defined)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 4px);
+  left: calc(50% - 6px);
+  width: 9px;
+  height: 9px;
+  border-right: 4px solid #14b8a6;
+  border-bottom: 4px solid #14b8a6;
+  border-radius: 1px;
+  transform: rotate(45deg);
+  opacity: 0;
+  animation:
+    vt-pending 300ms 300ms forwards,
+    vt-pending-pulse 1.4s 600ms ease-in-out infinite;
+}
+
+@keyframes vt-pending {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vt-pending-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+      vt-code,
+      vt-json,
+      vt-markdown,
+      vt-csv,
+      vt-tags,
+      vt-diff,
+      vt-terminal,
+      vt-tree,
+      vt-http,
+      vt-log,
+      vt-env,
+      vt-xml,
+      vt-cert,
+      vt-table,
+      vt-status,
+      vt-calendar,
+      vt-pricing,
+      vt-faq,
+      vt-gallery,
+      vt-stats,
+      vt-field,
+      vt-board,
+      vt-search,
+      vt-date-picker,
+      vt-menu,
+      vt-upload,
+      vt-testimonials,
+      vt-countdown,
+      vt-diagram,
+      vt-math,
+      vt-notebook,
+      vt-trace,
+      vt-test-report,
+      vt-sql,
+      vt-timeline,
+      vt-git,
+      vt-job
+    ):not(:defined)::after {
+    animation: vt-pending 0ms 300ms forwards;
+  }
+}

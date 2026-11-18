@@ -1,0 +1,59 @@
+/*!
+    Name:     Kimbie (light)
+    Author:   Jan T. Sott
+    License:  Creative Commons Attribution-ShareAlike 4.0 Unported License
+    URL:      https://github.com/idleberg/Kimbie-highlight.js
+*/
+/* Vitrine syntax theme "kimbie-light", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #fbebd4;
+  --_code-bg-solid: #fbebd4;
+  --_code-fg: #84613d;
+  --_code-gutter: color-mix(in srgb, #84613d 55%, transparent);
+  --_code-scheme: light;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #a57a4c;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-meta {
+  color: #dc3958;
+}
+.hljs-number,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-deletion,
+.hljs-link {
+  color: #f79a32;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #889b4a;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-function {
+  color: #98676a;
+}
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #f06431;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}

@@ -1,0 +1,2 @@
+/*! highlight.js language | BSD-3-Clause | https://github.com/highlightjs/highlight.js */
+var e=(s,n)=>()=>{try{return n||s((n={exports:{}}).exports,n),n.exports}catch(a){throw n=0,a}};var p=e((i,t)=>{function o(s){return{aliases:["pycon"],contains:[{className:"meta.prompt",starts:{end:/ |$/,starts:{end:"$",subLanguage:"python"}},variants:[{begin:/^>>>(?=[ ]|$)/},{begin:/^\.\.\.(?=[ ]|$)/}]}]}}t.exports=o});export default p();

@@ -1,0 +1,95 @@
+/*!
+  Theme: Helios
+  Author: Alex Meyer (https://github.com/reyemxela)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-helios", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #1d2021;
+  --_code-bg-solid: #1d2021;
+  --_code-fg: #d5d5d5;
+  --_code-gutter: color-mix(in srgb, #d5d5d5 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #53585b;
+  color: #d5d5d5;
+}
+.hljs-comment {
+  color: #6f7579;
+}
+.hljs-tag {
+  color: #cdcdcd;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #d5d5d5;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #d72638;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #eb8413;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #f19d1a;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #f19d1a;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #88b92d;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #1ba595;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #1e8bac;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #be4264;
+}
+.hljs-emphasis {
+  color: #be4264;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #c85e0d;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

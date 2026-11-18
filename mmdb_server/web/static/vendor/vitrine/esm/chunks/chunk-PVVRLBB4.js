@@ -1,0 +1,11 @@
+/*! Vitrine v0.14.0 | MIT License | https://github.com/ecrou-exact/vitrine
+ * Includes: highlight.js 11.12.0 (BSD-3-Clause), marked 18.1.3 (MIT), DOMPurify 3.4.17 (Apache-2.0 OR MPL-2.0), Lucide 1.52.0 (ISC; icons derived from Feather: MIT).
+ * Full license texts: THIRD_PARTY_NOTICES.md */
+var M=Object.freeze([",",";","	","|"]);function C(s){let r=s.slice(0,2e4).split(/\r?\n/).slice(0,20).filter(o=>o.trim()),e=",",t=0;for(let o of M){let n=r.map(f=>L(f,o));if(!n.length||n[0]===0)continue;let l=n.filter(f=>f===n[0]).length/n.length*10+Math.min(n[0],10);l>t&&(e=o,t=l)}return e}function L(s,r){let e=0,t=!1;for(let o of s)o==='"'?t=!t:o===r&&!t&&(e+=1);return e}function v(s,r={}){let e=s.charCodeAt(0)===65279?s.slice(1):s,t=r.delimiter??C(e),o=[],n=[],c="",l=!1,f=0,d=1,a=0,m=!1,i=0,p=e.length,h=()=>{n.length<1e3?n.push(c):m=!0,c=""},b=()=>{h(),a=Math.max(a,n.length),o.push(n),n=[]};for(;i<p;){let u=e[i];if(l){if(u==='"'){if(e[i+1]==='"'){c+='"',i+=2;continue}l=!1,i+=1;continue}let x=e.indexOf('"',i),g=x===-1?p:x,O=e.slice(i,g);d+=N(O),c+=O,i=g;continue}u==='"'&&c===""?(l=!0,f=d,i+=1):u===t?(h(),i+=1):u===`
+`||u==="\r"?(b(),i+=u==="\r"&&e[i+1]===`
+`?2:1,d+=1):(c+=u,i+=1)}return(c!==""||n.length)&&b(),{rows:o,delimiter:t,columns:a,truncatedColumns:m,error:l?{message:"Unclosed quoted field",line:f}:null}}function N(s){let r=0;for(let e=s.indexOf(`
+`);e!==-1;e=s.indexOf(`
+`,e+1))r+=1;return r}var w=/^[+-]?(?:\d{1,3}(?:[ ,]\d{3})+|\d+)?(?:[.]\d+)?(?:e[+-]?\d+)?%?$/i,A=/^\d{4}-\d{2}-\d{2}(?:[T ]\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?)?$/,E=/^(?:true|false|yes|no)$/i;function D(s,r){let e=0,t={number:0,date:0,boolean:0};for(let o=0;o<s.length&&e<500;o+=1){let n=(s[o][r]??"").trim();n&&(e+=1,w.test(n)&&/\d/.test(n)?t.number+=1:A.test(n)?t.date+=1:E.test(n)&&(t.boolean+=1))}return e?t.number===e?"number":t.date===e?"date":t.boolean===e?"boolean":"text":"text"}function S(s,r){let e=s.trim();return r==="number"?Number(e.replace(/[ ,%]/g,"")):r==="date"?Date.parse(e):e.toLowerCase()}function T(s,r){let e=t=>t.includes('"')||t.includes("\r")||t.includes(`
+`)||t.includes(r);return s.map(t=>t.map(o=>e(o)?`"${o.replace(/"/g,'""')}"`:o).join(r)).join(`
+`)}export{v as a,D as b,S as c,T as d};
+//# sourceMappingURL=chunk-PVVRLBB4.js.map

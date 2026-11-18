@@ -1,0 +1,84 @@
+/*!
+
+ISBL Editor style light color schemec (c) Dmitriy Tarasov <dimatar@gmail.com>
+
+*/
+/* Vitrine syntax theme "isbl-editor-light", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: white;
+  --_code-bg-solid: white;
+  --_code-fg: black;
+  --_code-gutter: color-mix(in srgb, black 55%, transparent);
+  --_code-scheme: light;
+}
+.hljs-subst {
+  color: black;
+}
+.hljs-comment {
+  color: #555555;
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-name {
+  color: #000000;
+  font-weight: bold;
+}
+.hljs-string {
+  color: #000080;
+}
+.hljs-type,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #000000;
+}
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #5e1700;
+}
+.hljs-built_in,
+.hljs-literal {
+  color: #000080;
+  font-weight: bold;
+}
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #397300;
+}
+.hljs-class {
+  color: #6f1C00;
+  font-weight: bold;
+}
+.hljs-title,
+.hljs-section {
+  color: #fb2c00;
+}
+.hljs-title>.hljs-built_in {
+  color: #008080;
+  font-weight: normal;
+}
+.hljs-meta {
+  color: #1f7199;
+}
+.hljs-meta .hljs-string {
+  color: #4d99bf;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}

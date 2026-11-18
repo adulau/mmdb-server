@@ -1,0 +1,2 @@
+/*! highlight.js language | BSD-3-Clause | https://github.com/highlightjs/highlight.js */
+var t=(n,e)=>()=>{try{return e||n((e={exports:{}}).exports,e),e.exports}catch(a){throw e=0,a}};var i=t((m,o)=>{function c(n){let e=n.COMMENT(/\(\*/,/\*\)/),a={className:"attribute",begin:/^[ ]*[a-zA-Z]+([\s_-]+[a-zA-Z]+)*/},s={begin:/=/,end:/[.;]/,contains:[e,{className:"meta",begin:/\?.*\?/},{className:"string",variants:[n.APOS_STRING_MODE,n.QUOTE_STRING_MODE,{begin:"`",end:"`"}]}]};return{name:"Extended Backus-Naur Form",illegal:/\S/,contains:[e,a,s]}}o.exports=c});export default i();

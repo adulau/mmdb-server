@@ -1,0 +1,71 @@
+/*!
+
+Qt Creator dark color scheme
+
+*/
+/* Vitrine syntax theme "qtcreator-dark", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #000000;
+  --_code-bg-solid: #000000;
+  --_code-fg: #aaaaaa;
+  --_code-gutter: color-mix(in srgb, #aaaaaa 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal {
+  color: #ff55ff;
+}
+.hljs-code .hljs-selector-class {
+  color: #aaaaff;
+}
+.hljs-emphasis,
+.hljs-stronge,
+.hljs-type {
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-function,
+.hljs-section,
+.hljs-symbol,
+.hljs-name {
+  color: #ffff55;
+}
+.hljs-subst,
+.hljs-tag,
+.hljs-title {
+  color: #aaaaaa;
+}
+.hljs-attribute {
+  color: #ff5555;
+}
+.hljs-variable,
+.hljs-params,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #8888ff;
+}
+.hljs-string,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-type,
+.hljs-built_in,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition,
+.hljs-link {
+  color: #ff55ff;
+}
+.hljs-comment,
+.hljs-meta,
+.hljs-deletion {
+  color: #55ffff;
+}

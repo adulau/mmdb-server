@@ -1,0 +1,85 @@
+/*!
+  Theme: Rose Pine
+  Origin: https://rosepinetheme.com/
+*/
+/* Vitrine syntax theme "rose-pine-moon", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #232136;
+  --_code-bg-solid: #232136;
+  --_code-fg: #6e6a86;
+  --_code-gutter: color-mix(in srgb, #6e6a86 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs-meta,
+.hljs-comment {
+  color: #6e6a86;
+}
+.hljs-tag,
+.hljs-doctag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-variable.language_,
+.hljs-deletion {
+  color: #eb6f92;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-number,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-link {
+  color: #ea9a97;
+}
+.hljs-built_in,
+.hljs-attribute {
+  color: #f6c177;
+}
+.hljs-selector-tag {
+  color: #3e8fb0;
+}
+.hljs-keyword,
+.hljs-title.function_,
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-subst,
+.hljs-property {
+  color: #9ccfd8;
+}
+.hljs-selector-tag {
+  color: #9ccfd8;
+}
+.hljs-quote,
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #3e8fb0;
+}
+.hljs-code,
+.hljs-formula,
+.hljs-section {
+  color: #ea9a97;
+}
+.hljs-name,
+.hljs-keyword,
+.hljs-operator,
+.hljs-keyword,
+.hljs-char.escape_,
+.hljs-attr {
+  color: #c4a7e7;
+}
+.hljs-punctuation {
+  color: #e0def4;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}

@@ -1,0 +1,59 @@
+/*!
+
+FAR Style (c) MajestiC <majestic2k@gmail.com>
+
+*/
+/* Vitrine syntax theme "far", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #000080;
+  --_code-bg-solid: #000080;
+  --_code-fg: #0ff;
+  --_code-gutter: color-mix(in srgb, #0ff 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs-string,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: #ff0;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-type,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-variable {
+  color: #fff;
+}
+.hljs-comment,
+.hljs-quote,
+.hljs-doctag,
+.hljs-deletion {
+  color: #888;
+}
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #0f0;
+}
+.hljs-meta {
+  color: #008080;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-emphasis {
+  font-style: italic;
+}

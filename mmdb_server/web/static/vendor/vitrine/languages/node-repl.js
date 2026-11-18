@@ -1,0 +1,2 @@
+/*! highlight.js language | BSD-3-Clause | https://github.com/highlightjs/highlight.js */
+var t=(e,a)=>()=>{try{return a||e((a={exports:{}}).exports,a),a.exports}catch(s){throw a=0,s}};var i=t((p,n)=>{function r(e){return{name:"Node REPL",contains:[{className:"meta.prompt",starts:{end:/ |$/,starts:{end:"$",subLanguage:"javascript"}},variants:[{begin:/^>(?=[ ]|$)/},{begin:/^\.\.\.(?=[ ]|$)/}]}]}}n.exports=r});export default i();

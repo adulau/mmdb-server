@@ -1,0 +1,95 @@
+/*!
+  Theme: tender
+  Author: Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-tender", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #282828;
+  --_code-bg-solid: #282828;
+  --_code-fg: #eeeeee;
+  --_code-gutter: color-mix(in srgb, #eeeeee 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #484848;
+  color: #eeeeee;
+}
+.hljs-comment {
+  color: #4c4c4c;
+}
+.hljs-tag {
+  color: #b8b8b8;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #eeeeee;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #f43753;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #dc9656;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #ffc24b;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #ffc24b;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #c9d05c;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #73cef4;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #b3deef;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #d3b987;
+}
+.hljs-emphasis {
+  color: #d3b987;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #a16946;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

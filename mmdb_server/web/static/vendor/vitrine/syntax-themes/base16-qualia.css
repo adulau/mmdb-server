@@ -1,0 +1,95 @@
+/*!
+  Theme: Qualia
+  Author: isaacwhanson
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-qualia", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #101010;
+  --_code-bg-solid: #101010;
+  --_code-fg: #C0C0C0;
+  --_code-gutter: color-mix(in srgb, #C0C0C0 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #454545;
+  color: #C0C0C0;
+}
+.hljs-comment {
+  color: #454545;
+}
+.hljs-tag {
+  color: #808080;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #C0C0C0;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #EFA6A2;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #A3B8EF;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #E6A3DC;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #E6A3DC;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #80C990;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #C8C874;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #50CACD;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #E0AF85;
+}
+.hljs-emphasis {
+  color: #E0AF85;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #808080;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

@@ -1,0 +1,57 @@
+/*!
+
+VS Dark theme based off the theme distributed with the Monaco editor by Twineee <twineee@tutamail.com>
+
+*/
+/* Vitrine syntax theme "vs-dark", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #202020;
+  --_code-bg-solid: #202020;
+  --_code-fg: #CCCCCC;
+  --_code-gutter: color-mix(in srgb, #CCCCCC 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs-comment,
+.hljs-doctag,
+.hljs-quote,
+.hljs-variable {
+  color: #6A9954;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: #579CD6;
+}
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-literal,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-addition {
+  color: #CE9178;
+}
+.hljs-deletion,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {
+  color: #D4D4D4;
+}
+.hljs-attr {
+  color: #9DDCFE;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #00b0e8;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}

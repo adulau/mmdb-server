@@ -1,0 +1,2 @@
+/*! highlight.js language | BSD-3-Clause | https://github.com/highlightjs/highlight.js */
+var a=(n,e)=>()=>{try{return e||n((e={exports:{}}).exports,e),e.exports}catch(O){throw e=0,O}};var E=a((i,_)=>{function t(n){return{name:"Backus\u2013Naur Form",contains:[{className:"attribute",begin:/</,end:/>/},{begin:/::=/,end:/$/,contains:[{begin:/</,end:/>/},n.C_LINE_COMMENT_MODE,n.C_BLOCK_COMMENT_MODE,n.APOS_STRING_MODE,n.QUOTE_STRING_MODE]}]}}_.exports=t});export default E();

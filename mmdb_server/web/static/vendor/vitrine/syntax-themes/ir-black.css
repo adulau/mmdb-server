@@ -1,0 +1,62 @@
+/*!
+  IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
+*/
+/* Vitrine syntax theme "ir-black", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #000;
+  --_code-bg-solid: #000;
+  --_code-fg: #f8f8f8;
+  --_code-gutter: color-mix(in srgb, #f8f8f8 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs-comment,
+.hljs-quote,
+.hljs-meta {
+  color: #7c7c7c;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag,
+.hljs-name {
+  color: #96cbfe;
+}
+.hljs-attribute,
+.hljs-selector-id {
+  color: #ffffb6;
+}
+.hljs-string,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition {
+  color: #a8ff60;
+}
+.hljs-subst {
+  color: #daefa3;
+}
+.hljs-regexp,
+.hljs-link {
+  color: #e9c062;
+}
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-doctag {
+  color: #ffffb6;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-literal {
+  color: #c6c5fe;
+}
+.hljs-number,
+.hljs-deletion {
+  color: #ff73fd;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}

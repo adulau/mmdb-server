@@ -1,0 +1,95 @@
+/*!
+  Theme: Decaf
+  Author: Alex Mirrington (https://github.com/alexmirrington)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-decaf", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #2d2d2d;
+  --_code-bg-solid: #2d2d2d;
+  --_code-fg: #cccccc;
+  --_code-gutter: color-mix(in srgb, #cccccc 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #515151;
+  color: #cccccc;
+}
+.hljs-comment {
+  color: #777777;
+}
+.hljs-tag {
+  color: #b4b7b4;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #cccccc;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #ff7f7b;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #ffbf70;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #ffd67c;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #ffd67c;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #beda78;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #bed6ff;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #90bee1;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #efb3f7;
+}
+.hljs-emphasis {
+  color: #efb3f7;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #ff93b3;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

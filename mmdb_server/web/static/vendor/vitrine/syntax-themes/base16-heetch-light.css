@@ -1,0 +1,95 @@
+/*!
+  Theme: Heetch Light
+  Author: Geoffrey Teale (tealeg@gmail.com)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-heetch-light", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #feffff;
+  --_code-bg-solid: #feffff;
+  --_code-fg: #5a496e;
+  --_code-gutter: color-mix(in srgb, #5a496e 55%, transparent);
+  --_code-scheme: light;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #7b6d8b;
+  color: #5a496e;
+}
+.hljs-comment {
+  color: #9c92a8;
+}
+.hljs-tag {
+  color: #ddd6e5;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #5a496e;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #27d9d5;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #bdb6c5;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #5ba2b6;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #5ba2b6;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #f80059;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #c33678;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #47f9f5;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #bd0152;
+}
+.hljs-emphasis {
+  color: #bd0152;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #dedae2;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

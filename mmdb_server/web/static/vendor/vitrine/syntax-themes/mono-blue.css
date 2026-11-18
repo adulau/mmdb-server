@@ -1,0 +1,52 @@
+/*!
+  Five-color theme from a single blue hue.
+*/
+/* Vitrine syntax theme "mono-blue", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #eaeef3;
+  --_code-bg-solid: #eaeef3;
+  --_code-fg: #00193a;
+  --_code-gutter: color-mix(in srgb, #00193a 55%, transparent);
+  --_code-scheme: light;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-comment {
+  color: #738191;
+}
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-addition,
+.hljs-tag,
+.hljs-quote,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #0048ab;
+}
+.hljs-meta,
+.hljs-subst,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-attribute,
+.hljs-deletion,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-bullet {
+  color: #4c81c9;
+}
+.hljs-emphasis {
+  font-style: italic;
+}

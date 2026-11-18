@@ -3,3 +3,8 @@ mmdb_file = db/GeoOpen-Country.mmdb,db/GeoOpen-Country-ASN.mmdb
 country_file = db/country.json
 lookup_pubsub = no 
 port = 8000
+web_ui = yes
+# Public address of this instance, used in the commands shown by the web
+# interface (e.g. https://ip.circl.lu). Leave empty to use the address
+# the visitor opened the page with.
+public_url =

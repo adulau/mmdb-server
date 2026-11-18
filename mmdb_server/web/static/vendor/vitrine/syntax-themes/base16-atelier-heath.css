@@ -1,0 +1,95 @@
+/*!
+  Theme: Atelier Heath
+  Author: Bram de Haan (http://atelierbramdehaan.nl)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-atelier-heath", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #1b181b;
+  --_code-bg-solid: #1b181b;
+  --_code-fg: #ab9bab;
+  --_code-gutter: color-mix(in srgb, #ab9bab 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #695d69;
+  color: #ab9bab;
+}
+.hljs-comment {
+  color: #776977;
+}
+.hljs-tag {
+  color: #9e8f9e;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #ab9bab;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #ca402b;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #a65926;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #bb8a35;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #bb8a35;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #918b3b;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #159393;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #516aec;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #7b59c0;
+}
+.hljs-emphasis {
+  color: #7b59c0;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #cc33cc;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

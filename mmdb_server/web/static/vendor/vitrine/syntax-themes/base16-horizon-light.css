@@ -1,0 +1,95 @@
+/*!
+  Theme: Horizon Light
+  Author: Michaël Ball (http://github.com/michael-ball/)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-horizon-light", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #FDF0ED;
+  --_code-bg-solid: #FDF0ED;
+  --_code-fg: #403C3D;
+  --_code-gutter: color-mix(in srgb, #403C3D 55%, transparent);
+  --_code-scheme: light;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #F9CBBE;
+  color: #403C3D;
+}
+.hljs-comment {
+  color: #BDB3B1;
+}
+.hljs-tag {
+  color: #948C8A;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #403C3D;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #E95678;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #F9CEC3;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #FADAD1;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #FADAD1;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #29D398;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #59E1E3;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #26BBD9;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #EE64AC;
+}
+.hljs-emphasis {
+  color: #EE64AC;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #F9CBBE;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

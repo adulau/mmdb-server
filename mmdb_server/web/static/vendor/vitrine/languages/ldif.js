@@ -1,0 +1,2 @@
+/*! highlight.js language | BSD-3-Clause | https://github.com/highlightjs/highlight.js */
+var n=(t,a)=>()=>{try{return a||t((a={exports:{}}).exports,a),a.exports}catch(c){throw a=0,c}};var l=n((r,e)=>{function s(t){return{name:"LDIF",contains:[{className:"attribute",match:"^dn(?=:)",relevance:10},{className:"attribute",match:"^\\w+(?=:)"},{className:"literal",match:"^-"},t.HASH_COMMENT_MODE]}}e.exports=s});export default l();

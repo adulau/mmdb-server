@@ -1,0 +1,95 @@
+/*!
+  Theme: iA Dark
+  Author: iA Inc. (modified by aramisgithub)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/* Vitrine syntax theme "base16-ia-dark", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #1a1a1a;
+  --_code-bg-solid: #1a1a1a;
+  --_code-fg: #cccccc;
+  --_code-gutter: color-mix(in srgb, #cccccc 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #1d414d;
+  color: #cccccc;
+}
+.hljs-comment {
+  color: #767676;
+}
+.hljs-tag {
+  color: #b8b8b8;
+}
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #cccccc;
+}
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #d88568;
+}
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #d86868;
+}
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #b99353;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #b99353;
+}
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #83a471;
+}
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #7c9cae;
+}
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #8eccdd;
+}
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #b98eb2;
+}
+.hljs-emphasis {
+  color: #b98eb2;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #8b6c37;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold;
+}

@@ -1,0 +1,73 @@
+/*!
+
+Style with support for rainbow parens
+
+*/
+/* Vitrine syntax theme "rainbow", converted from highlight.js (BSD-3-Clause). */
+.vt {
+  --_code-bg: #474949;
+  --_code-bg-solid: #474949;
+  --_code-fg: #d1d9e1;
+  --_code-gutter: color-mix(in srgb, #d1d9e1 55%, transparent);
+  --_code-scheme: dark;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #969896;
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type,
+.hljs-addition {
+  color: #cc99cc;
+}
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #f99157;
+}
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #8abeb7;
+}
+.hljs-title,
+.hljs-name,
+.hljs-section,
+.hljs-built_in {
+  color: #b5bd68;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #ffcc66;
+}
+.hljs-section,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-link {
+  color: #f99157;
+}
+.hljs-deletion {
+  color: #dc322f;
+}
+.hljs-formula {
+  background: #eee8d5;
+}
+.hljs-attr,
+.hljs-attribute {
+  color: #81a2be;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
