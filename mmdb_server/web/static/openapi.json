@@ -1,0 +1,140 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "mmdb-server",
+    "version": "0.6",
+    "description": "Look up the country and autonomous system of IPv4 and IPv6 addresses. Every lookup answers a JSON array with one object per loaded MaxMind DB file (by default GeoOpen-Country and GeoOpen-Country-ASN).",
+    "license": { "name": "AGPL-3.0-or-later", "url": "https://www.gnu.org/licenses/agpl-3.0.html" }
+  },
+  "servers": [{ "url": "/" }],
+  "tags": [
+    { "name": "Lookup", "description": "Geolocation of an address." },
+    { "name": "Server", "description": "Information about the server." }
+  ],
+  "paths": {
+    "/geolookup/{ip}": {
+      "get": {
+        "tags": ["Lookup"],
+        "operationId": "geolookup",
+        "summary": "Look up an IP address",
+        "parameters": [
+          {
+            "name": "ip", "in": "path", "required": true,
+            "description": "IPv4 address in dotted decimal or IPv6 address in textual representation.",
+            "schema": { "type": "string" },
+            "examples": { "ipv4": { "value": "188.65.220.25" }, "ipv6": { "value": "2a02:21d0::68:69:25" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One result per database.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LookupAnswer" } } }
+          },
+          "422": {
+            "description": "The value is not an IPv4 or IPv6 address.",
+            "content": { "application/json": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": ["Lookup"],
+        "operationId": "mygeolookup",
+        "summary": "Look up your own IP address",
+        "description": "The address is the client's address as seen by the server (`X-Forwarded-For` aware).",
+        "responses": {
+          "200": {
+            "description": "One result per database.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LookupAnswer" } } }
+          }
+        }
+      }
+    },
+    "/raw": {
+      "get": {
+        "tags": ["Lookup"],
+        "operationId": "raw",
+        "summary": "Your own IP address, as plain text",
+        "responses": {
+          "200": { "description": "The address.", "content": { "text/plain": { "schema": { "type": "string" }, "example": "188.65.220.25" } } }
+        }
+      },
+      "head": {
+        "tags": ["Lookup"],
+        "operationId": "rawHead",
+        "summary": "Your own IP address, in the X-IP header",
+        "responses": {
+          "200": { "description": "The address is in the header.", "headers": { "X-IP": { "schema": { "type": "string" } } } }
+        }
+      }
+    },
+    "/meta": {
+      "get": {
+        "tags": ["Server"],
+        "operationId": "meta",
+        "summary": "Server version and loaded databases",
+        "responses": {
+          "200": {
+            "description": "Version and databases.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": { "type": "string", "example": "0.6" },
+                    "databases": { "type": "array", "items": { "$ref": "#/components/schemas/Meta" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LookupAnswer": {
+        "type": "array",
+        "items": { "$ref": "#/components/schemas/LookupResult" }
+      },
+      "LookupResult": {
+        "type": "object",
+        "properties": {
+          "ip": { "type": "string", "example": "188.65.220.25" },
+          "country": {
+            "type": "object",
+            "properties": {
+              "iso_code": { "type": "string", "description": "ISO 3166-1 alpha-2 code, or \"None\" when unknown.", "example": "BE" },
+              "AutonomousSystemNumber": { "type": "string", "description": "Only in the ASN database.", "example": "49677" },
+              "AutonomousSystemOrganization": { "type": "string", "description": "Only in the ASN database.", "example": "MAEHDROS-AS" }
+            }
+          },
+          "meta": { "$ref": "#/components/schemas/Meta" },
+          "country_info": {
+            "type": "object",
+            "description": "Empty when the country is unknown.",
+            "properties": {
+              "Country": { "type": "string", "example": "Belgium" },
+              "Alpha-2 code": { "type": "string", "example": "BE" },
+              "Alpha-3 code": { "type": "string", "example": "BEL" },
+              "Numeric code": { "type": "string", "example": "56" },
+              "Latitude (average)": { "type": "string", "example": "50.8333" },
+              "Longitude (average)": { "type": "string", "example": "4" }
+            }
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "object", "example": { "en": "Geo Open MMDB database - https://github.com/adulau/mmdb-server" } },
+          "build_db": { "type": "string", "example": "2026-11-17 10:30:25" },
+          "db_source": { "type": "string", "example": "GeoOpen-Country-ASN" },
+          "nb_nodes": { "type": "integer", "example": 1159815 }
+        }
+      }
+    }
+  }
+}

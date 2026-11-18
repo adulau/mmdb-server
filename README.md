@@ -132,6 +132,55 @@ Python 3.10+ is required to run the mmdb-server with poetry.
 ]
 ```
 
+# Web interface
+
+Once the server runs, open **http://127.0.0.1:8000/web/** in a browser. No extra installation is needed: the page and everything it uses are in `mmdb_server/web/` and are served by mmdb-server itself.
+
+- **Lookup**: the country and autonomous system of an address, shown on a flat map or a 3D globe, with the answer of each database, the raw JSON and the matching `curl` command. Your own address is looked up only when you click **My address**.
+- **Bulk**: paste a list of addresses or any text (logs, e-mail headers). The IPv4 and IPv6 addresses in it are found, defanged ones too (`192.0.2[.]1`), deduplicated and looked up (up to 1000). The results are shown as a table you can search and export as CSV, with a map and a ranking of the countries.
+- **API**: the API reference (OpenAPI 3.1, `mmdb_server/web/static/openapi.json`).
+- **About**: how the data is built, what a result means, and the licences of every component.
+
+## Configuration
+
+In `etc/server.conf`, section `[global]`:
+
+```ini
+# Serve the web interface on /web/ (default: yes)
+web_ui = yes
+# Public address of this instance, used in the curl commands and the API
+# reference shown by the page (e.g. https://ip.circl.lu). Empty: the
+# address the visitor opened the page with.
+public_url =
+```
+
+Set `public_url` on a public instance: the page then always shows its public name, never an internal address or port of the machine behind the reverse proxy.
+
+With `web_ui = no` only the JSON API is served. The API is unchanged by the web interface; one endpoint was added: `GET /meta` returns the server version, the `public_url` and the loaded databases.
+
+The page only uses relative links, so it also works behind a reverse proxy that serves mmdb-server under a path prefix (for example `https://example.org/ip/web/`).
+
+## Security and privacy
+
+- The page loads nothing from another site: no CDN, no web font service, no analytics. Scripts, styles, fonts, icons, flags and map shapes are pinned copies in `mmdb_server/web/static/vendor/`.
+- Responses from `/web/` carry a strict `Content-Security-Policy` (`'self'` only, no inline script), `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer` and `X-Content-Type-Options: nosniff`. Every API response carries the last two.
+- Data from the API is always inserted in the page as text, never as HTML. The CSV export escapes cells that start with `=`, `+`, `-` or `@`.
+
+## Third-party components
+
+| Component | Version | Folder in `static/vendor/` | Licence |
+|---|---|---|---|
+| [Vitrine](https://github.com/ecrou-exact/vitrine) | 0.14.0 | `vitrine/` | MIT |
+| [Leaflet](https://leafletjs.com/) | 1.9.4 | `leaflet/` | BSD-2-Clause |
+| d3-geo, d3-array | 3.1.1, 3.2.4 | `d3/` | ISC |
+| topojson-client | 3.1.0 | `topojson-client/` | ISC |
+| world-atlas ([Natural Earth](https://www.naturalearthdata.com/)) | 2.0.2 | `world-atlas/` | ISC, public domain data |
+| [flag-icons](https://github.com/lipis/flag-icons) | 7.2.3 | `flag-icons/` | MIT |
+| Font Awesome Free | 6.5.2 | `fontawesome/` | CC BY 4.0, OFL 1.1, MIT |
+| Space Grotesk, IBM Plex Sans, JetBrains Mono (Fontsource) | 5.1.0 | `fonts/` | OFL 1.1 |
+
+Each folder holds the licence file of the component. For Vitrine, only the loader and the modules of the four components used (`vt-code`, `vt-json`, `vt-table`, `vt-openapi`) are kept, with their shared chunks. The npm packages were used as the source (`npm pack <name>@<version>`); Vitrine comes from its `v0.14.0` release. To update a component, replace its folder with the files of the new version and change the version in this table and on the About page.
+
 # Output format
 
 The output format is an array of JSON object (to support the ability to serve multiple geo location database).  Each JSON object of the JSON array includes a `meta`, `country`, `ip` and `country_info` fields. The `country` give the geographic location of the IP address queried. The `meta` field includes the origin of the MMDB database which the the metadata. `ip` returns the queried IP address. `country_info` gives additional information about the country such as `Country`, `Alpha-2 code`, `Alpha-3 code`, `Numeric code`, Latitude and Longitude (average centric value).
