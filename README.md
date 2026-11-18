@@ -179,7 +179,7 @@ The page only uses relative links, so it also works behind a reverse proxy that 
 | Font Awesome Free | 6.5.2 | `fontawesome/` | CC BY 4.0, OFL 1.1, MIT |
 | Space Grotesk, IBM Plex Sans, JetBrains Mono (Fontsource) | 5.1.0 | `fonts/` | OFL 1.1 |
 
-Each folder holds the licence file of the component. The npm packages were used as the source (`npm pack <name>@<version>`); Vitrine comes from its `v0.14.0` release. To update a component, replace its folder with the files of the new version and change the version in this table and on the About page.
+Each folder holds the licence file of the component. For Vitrine, only the loader and the modules of the four components used (`vt-code`, `vt-json`, `vt-table`, `vt-openapi`) are kept, with their shared chunks. The npm packages were used as the source (`npm pack <name>@<version>`); Vitrine comes from its `v0.14.0` release. To update a component, replace its folder with the files of the new version and change the version in this table and on the About page.
 
 # Output format
 
