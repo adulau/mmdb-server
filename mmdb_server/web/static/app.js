@@ -206,7 +206,7 @@ class WorldMap {
     this.map = L.map(element, {
       worldCopyJump: false,
       minZoom: 1,
-      maxZoom: 7,
+      maxZoom: 10,
       zoomSnap: 0.25,
       maxBounds: [[-85, -220], [85, 220]],
       maxBoundsViscosity: 0.8,
@@ -220,6 +220,8 @@ class WorldMap {
     this.points = [];
     this.target = null;
     this.styleFor = () => ({});
+    this.tiles = null;
+    metaReady.then((meta) => this.addTiles(meta?.map_tiles));
     this.globe = new Globe(this);
     this.addSwitch();
     new ResizeObserver(() => {
@@ -268,6 +270,29 @@ class WorldMap {
     }
   }
 
+  // Background tiles (CIRCL hosted OpenStreetMap by default, see map_tile_url).
+  // Without them, the country shapes alone draw the map.
+  addTiles(config) {
+    if (!config?.url) return;
+    this.tiles = L.tileLayer(config.url, {
+      maxNativeZoom: 18,
+      attribution: config.attribution || '',
+      className: 'map-tiles',
+    });
+    // Tile server unreachable (offline, blocked): go back to the shapes alone.
+    let loaded = false;
+    this.tiles.on('tileload', () => { loaded = true; });
+    this.tiles.on('tileerror', () => {
+      if (loaded || !this.map.hasLayer(this.tiles)) return;
+      this.map.removeLayer(this.tiles);
+      this.map.attributionControl.addAttribution('Natural Earth');
+      this.restyle();
+    });
+    this.tiles.addTo(this.map);
+    this.map.attributionControl.removeAttribution('Natural Earth');
+    this.restyle();
+  }
+
   async ready() {
     if (this.layer) return;
     const geo = await loadWorld();
@@ -283,12 +308,19 @@ class WorldMap {
   }
 
   style(feature) {
+    const extra = this.styleFor(feature);
+    // Over the tiles, only the highlighted countries are drawn.
+    if (this.tiles && this.map.hasLayer(this.tiles)) {
+      return extra.fillColor
+        ? { weight: 1, color: cssVar('--link'), fillOpacity: 0.45, ...extra }
+        : { weight: 0, opacity: 0, fillOpacity: 0 };
+    }
     return {
       color: cssVar('--land-line'),
       weight: 0.6,
       fillColor: cssVar('--land'),
       fillOpacity: 1,
-      ...this.styleFor(feature),
+      ...extra,
     };
   }
 
@@ -975,7 +1007,7 @@ async function loadApi() {
 // ---------------------------------------------------------------- footer
 
 const metaReady = fetch(new URL('meta', API_ROOT)).then((r) => (r.ok ? r.json() : null)).then((meta) => {
-  if (!meta) return;
+  if (!meta) return null;
   if (meta.public_url) {
     try {
       const url = new URL(`${meta.public_url}/`);
@@ -986,7 +1018,8 @@ const metaReady = fetch(new URL('meta', API_ROOT)).then((r) => (r.ok ? r.json() 
   $('#db-info').textContent = meta.databases
     .map((db) => `${db.db_source} built ${db.build_db}`)
     .join(' · ');
-}).catch(() => {});
+  return meta;
+}).catch(() => null);
 
 // ---------------------------------------------------------------- routing
 

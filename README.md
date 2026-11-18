@@ -152,11 +152,18 @@ web_ui = yes
 # reference shown by the page (e.g. https://ip.circl.lu). Empty: the
 # address the visitor opened the page with.
 public_url =
+# Background tiles of the map, as an XYZ URL
+# (e.g. https://tiles.example.org/{z}/{x}/{y}.png), and their credit.
+# Empty (default): only the country shapes, nothing loaded from another site.
+map_tile_url =
+map_tile_attribution =
 ```
+
+The tile server is added to the `img-src` of the page's Content-Security-Policy. If it cannot be reached, the map falls back to the country shapes alone.
 
 Set `public_url` on a public instance: the page then always shows its public name, never an internal address or port of the machine behind the reverse proxy.
 
-With `web_ui = no` only the JSON API is served. The API is unchanged by the web interface; one endpoint was added: `GET /meta` returns the server version, the `public_url` and the loaded databases.
+With `web_ui = no` only the JSON API is served. The API is unchanged by the web interface; one endpoint was added: `GET /meta` returns the server version, the `public_url`, the map tiles settings and the loaded databases.
 
 The page only uses relative links, so it also works behind a reverse proxy that serves mmdb-server under a path prefix (for example `https://example.org/ip/web/`).
 

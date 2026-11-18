@@ -8,3 +8,8 @@ web_ui = yes
 # interface (e.g. https://ip.circl.lu). Leave empty to use the address
 # the visitor opened the page with.
 public_url =
+# Background tiles of the web interface map, as an XYZ URL
+# (e.g. https://tiles.example.org/{z}/{x}/{y}.png) and the credit shown
+# under the map (HTML allowed). Leave empty to show only the country shapes.
+map_tile_url =
+map_tile_attribution =

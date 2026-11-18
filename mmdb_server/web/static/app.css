@@ -205,6 +205,10 @@ table { border-collapse: collapse; width: 100%; }
 .map-switch button:hover { color: var(--ink); }
 .map-switch button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); }
 .leaflet-container { background: var(--sea); font: 12px/1.4 var(--sans); }
+:root[data-theme="dark"] .map-tiles { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .map-tiles { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9); }
+}
 .leaflet-bar { border: 1px solid var(--line) !important; box-shadow: none !important; }
 .leaflet-bar a { background: var(--surface) !important; color: var(--ink) !important; border-color: var(--line) !important; }
 .leaflet-control-attribution { background: color-mix(in srgb, var(--surface) 85%, transparent) !important; color: var(--muted) !important; }
