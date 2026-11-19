@@ -9,6 +9,7 @@
 import configparser
 import time
 from ipaddress import ip_address
+from urllib.parse import urlsplit
 import json
 from pathlib import Path
 from wsgiref.simple_server import make_server
@@ -28,6 +29,12 @@ web_ui = config['global'].getboolean('web_ui', fallback=True)
 # commands and API reference of the web interface. Empty: the address the
 # visitor used to open the page.
 public_url = config['global'].get('public_url', fallback='').strip().rstrip('/')
+
+# Background tiles of the web interface map (XYZ "slippy map" URL, e.g. an
+# OpenStreetMap tile server). Empty: no tiles, only the country shapes
+# served by this server.
+map_tile_url = config['global'].get('map_tile_url', fallback='').strip()
+map_tile_attribution = config['global'].get('map_tile_attribution', fallback='').strip()
 
 web_dir = Path(__file__).resolve().parent / 'web'
 
@@ -133,16 +140,27 @@ class Meta:
             m = mmdb.copy()
             del m['reader']
             ret.append(m)
-        resp.media = {'version': version, 'public_url': public_url or None, 'databases': ret}
+        resp.media = {
+            'version': version,
+            'public_url': public_url or None,
+            'map_tiles': {'url': map_tile_url, 'attribution': map_tile_attribution} if map_tile_url else None,
+            'databases': ret,
+        }
 
 
 # The web interface loads nothing from other sites: every script, style,
-# font, image and data file is served from /web/static.
+# font, image and data file is served from /web/static, except the map
+# tiles (map_tile_url).
+tile_origin = ''
+if map_tile_url:
+    parts = urlsplit(map_tile_url)
+    if parts.scheme in ('http', 'https') and parts.netloc:
+        tile_origin = f' {parts.scheme}://{parts.netloc}'
 CSP = '; '.join([
     "default-src 'self'",
     "script-src 'self'",
     "style-src 'self'",
-    "img-src 'self' data:",
+    f"img-src 'self' data:{tile_origin}",
     "connect-src 'self'",
     "font-src 'self'",
     "object-src 'none'",
