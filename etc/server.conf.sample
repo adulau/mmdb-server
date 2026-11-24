@@ -2,6 +2,12 @@
 mmdb_file = db/GeoOpen-Country.mmdb,db/GeoOpen-Country-ASN.mmdb
 country_file = db/country.json
 lookup_pubsub = no 
+# How many reverse proxies append an address to X-Forwarded-For.
+# Leave empty to keep the previous behavior (leftmost, client-controlled).
+# 0: use the immediate peer and ignore forwarded headers.
+# 1: one proxy in front (typical nginx). The address that proxy appended
+# is used; a client cannot pick a different address by sending its own header.
+trusted_hops =
 port = 8000
 web_ui = yes
 # Public address of this instance, used in the commands shown by the web

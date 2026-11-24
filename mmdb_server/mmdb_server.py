@@ -68,6 +68,47 @@ def validIPAddress(IP: str) -> bool:
         return False
 
 
+def caller_ip(req):
+    """IP to treat as the caller of ``/`` and ``/raw``.
+
+    ``access_route[0]`` is the leftmost ``X-Forwarded-For`` value, which
+    the client can set, so a request can pretend to be any address and a
+    non-address (``X-Forwarded-For: foo``) used to raise an uncaught
+    ``ValueError`` (HTTP 500).
+
+    ``trusted_hops`` is how many reverse proxies append an address.
+    Unset keeps the old leftmost value. ``0`` uses the immediate peer.
+    ``1`` (a single nginx in front) uses the address that proxy appended,
+    ignoring anything the client put further left.
+    """
+    route = list(req.access_route) or [req.remote_addr]
+    raw = config['global'].get('trusted_hops', fallback='').strip()
+    if raw == '':
+        ip = route[0]
+    else:
+        try:
+            hops = int(raw)
+        except ValueError:
+            hops = 0
+        if hops < 0:
+            hops = 0
+        # The last entry is the socket peer. Each trusted proxy appended
+        # one address in front of it.
+        index = len(route) - 1 - hops
+        if index < 0:
+            index = 0
+        ip = route[index]
+    if not validIPAddress(ip):
+        return None
+    return ip
+
+
+_BAD_IP = (
+    'IPv4 or IPv6 address is in an incorrect format. '
+    'Dotted decimal for IPv4 or textual representation for IPv6 are required.'
+)
+
+
 def pubLookup(value: str) -> bool:
     if not pubsub:
         return False
@@ -110,7 +151,7 @@ class GeoLookup:
         ips = req.access_route
         if not validIPAddress(value):
             resp.status = falcon.HTTP_422
-            resp.media = "IPv4 or IPv6 address is in an incorrect format. Dotted decimal for IPv4 or textual representation for IPv6 are required."
+            resp.media = _BAD_IP
             return
         pubLookup(value=f'{value} via {ips} using {ua}')
         resp.media = geoLookup(value)
@@ -119,18 +160,29 @@ class GeoLookup:
 
 class MyGeoLookup:
     def on_get(self, req, resp):
-        ips = req.access_route
-        resp.media = geoLookup(ips[0])
+        ip = caller_ip(req)
+        if ip is None:
+            resp.status = falcon.HTTP_422
+            resp.media = _BAD_IP
+            return
+        resp.media = geoLookup(ip)
         return
 
 class MyRawLookup:
     def on_get(self, req, resp):
-        ips = req.access_route
-        resp.text = ips[0]
+        ip = caller_ip(req)
+        if ip is None:
+            resp.status = falcon.HTTP_422
+            resp.text = _BAD_IP
+            return
+        resp.text = ip
         return
     def on_head(self, req, resp):
-        ips = req.access_route
-        resp.append_header('X-IP', ips[0])
+        ip = caller_ip(req)
+        if ip is None:
+            resp.status = falcon.HTTP_422
+            return
+        resp.append_header('X-IP', ip)
 
 
 class Meta:
